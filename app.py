@@ -19,7 +19,7 @@ def run_search(event):
 search_btn = pn.widgets.Button(name="Search", button_type="primary")
 search_btn.on_click(run_search)
 
-pn.Column("# Regulation DD Search (BM25 + Vector + Gemini)",
+pn.Column("# Regulation DD Search",
           query_input,
           search_btn,
           output).servable()
