@@ -1,1 +1,2 @@
-# regulation_dd
+# Run: 
+## panel serve app.py --autoreload
