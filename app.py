@@ -8,21 +8,11 @@ pn.extension()
 query_input = pn.widgets.TextAreaInput(placeholder="Ask a question about Regulation DD...", width=900, height=100)
 output = pn.pane.Markdown("", width=600)
 
-# def run_search(event):
-#     query = query_input.value
-#     bm_results = semantic_search(query)
-#     # bm_results = bm25_search(query)
-#     vector_results = vector_search(query)
-#     context = '\n\n'.join(bm_results[:3] + vector_results[:3])
-#     prompt = f"Given the following excerpts from Regulation DD:\n\n{context}\n\nAnswer the question: {query}"
-#     answer = ask_gemini(prompt)
-#     output.object = f"### Answer:\n{answer}\n\n---\n### Context:\n{context}"
-
 def run_search(event):
     searcher = RegulationSearch()
     query = query_input.value
-    bm_results = searcher.semantic_search(query)
-    # bm_results = bm25_search(query)
+    # bm_results = searcher.semantic_search(query)
+    bm_results = searcher.bm25_search(query)
     vector_results = searcher.vector_search(query)
     context = '\n\n'.join(bm_results[:3] + vector_results[:3])
     prompt = f"Given the following excerpts from Regulation DD:\n\n{context}\n\nAnswer the question: {query}"
