@@ -1,6 +1,5 @@
 import panel as pn
 from llm import ask_gemini
-# from search import vector_search, semantic_search, bm25_search
 from regulation_search import RegulationSearch
 
 pn.extension()
@@ -11,7 +10,6 @@ output = pn.pane.Markdown("", width=600)
 def run_search(event):
     searcher = RegulationSearch()
     query = query_input.value
-    # bm_results = searcher.semantic_search(query)
     bm_results = searcher.bm25_search(query)
     vector_results = searcher.vector_search(query)
     context = '\n\n'.join(bm_results[:3] + vector_results[:3])

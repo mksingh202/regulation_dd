@@ -1,7 +1,6 @@
 import requests
-from config import GEMINI_API_KEY
+from config import GEMINI_API_KEY, GEMINI_URL
 
-GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta"
 
 def get_embedding(text):
     url = f"{GEMINI_URL}/models/embedding-001:embedContent?key={GEMINI_API_KEY}"

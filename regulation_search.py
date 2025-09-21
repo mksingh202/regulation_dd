@@ -23,16 +23,6 @@ class RegulationSearch:
         """
         return self._execute_query(sql, (query, limit))
 
-    def semantic_search(self, query, limit=5):
-        embedding = get_embedding(query)
-        sql = """
-            SELECT content 
-            FROM regulation_chunks 
-            ORDER BY embedding <-> %s::vector 
-            LIMIT %s
-        """
-        return self._execute_query(sql, (embedding, limit))
-
     def vector_search(self, query, limit=5):
         embedding = get_embedding(query)
         sql = """
