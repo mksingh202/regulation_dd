@@ -1,5 +1,5 @@
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta"
-GEMINI_API_KEY = "AIzaSyB9pkHQUgrlQApdsQyLJEzqC71rUgqL7Cs"
+GEMINI_API_KEY = "************************"
 PG_CONN_STRING = "postgresql://postgres:postgres@localhost:5432/regulations"
 EMBEDDING_MODEL = "models/embedding-001"
 CHAT_MODEL = "models/gemini-pro"
